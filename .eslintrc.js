@@ -20,6 +20,7 @@ module.exports = {
         "react",
         "@typescript-eslint",
         // 配置后 不通过import引入React也不会报错了
+        // 无需额外安装
         "plugin:react/jsx-runtime"
     ],
     "rules": {
