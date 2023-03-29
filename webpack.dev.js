@@ -3,46 +3,46 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const EslintWebpackPlugin = require("eslint-webpack-plugin");
 
+// 抽取公共部分
+const getStyleOptions = (importLoaders, loader) => {
+    return [
+        "style-loader",
+        {
+            loader: "css-loader",
+            options: {
+                importLoaders
+            }
+        },
+        "postcss-loader",
+        loader
+    ].filter(Boolean);
+}
+
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
+                oneOf: [
                     {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        }
+                        test: /\.css$/,
+                        use: getStyleOptions(1)
                     },
-                    'postcss-loader'
-                ]
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
                     {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 2
-                        }
+                        test: /\.less$/,
+                        use: getStyleOptions(2, 'less-loader')
                     },
-                    'postcss-loader',
-                    'less-loader'
+                    {
+                        test: /\.(js|jsx|ts|tsx)$/,
+                        exclude: /node_modules/,
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true,
+                            cacheCompression: false
+                        }
+                    }
                 ]
-            },
-            {
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    cacheDirectory: true,
-                    cacheCompression: false
-                }
             }
         ]
     },
