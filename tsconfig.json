@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        // "outDir": "./dist/",
+        // "sourceMap": true,
+        "noImplicitAny": true,
+        // 浏览器不支持CommonJS，所以这里选用ESNext
+        "module": "ESNext",
+        "target": "es5",
+        // 不import引入React也不会报错了
+        // 相当于支持了react/jsx-runtime功能
+        "jsx": "react-jsx",
+        // es模块引入和导出
+        "esModuleInterop": true,
+        // 类型声明文件所在目录
+        "typeRoots": [
+            "./src/types",
+            "./node_modules/@types"
+        ],
+        // paths配置项的前缀目录
+        "baseUrl": "./",
+        // 配置文件别名
+        "paths": {
+            // @对应src，但是一定要同时配置@和@/*,不然会报错
+            "@": ["src"],
+            "@/*": ["src/*"]
+        }
+    },
+    // 编译范围
+    "include": [
+        "./src/**/*"
+    ]
+}

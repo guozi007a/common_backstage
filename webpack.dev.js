@@ -20,7 +20,8 @@ const getStyleOptions = (importLoaders, loader) => {
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    // 入口文件不再是./src/index.js了
+    entry: './src/index.tsx',
     module: {
         rules: [
             {
@@ -36,11 +37,16 @@ module.exports = {
                     {
                         test: /\.(js|jsx|ts|tsx)$/,
                         exclude: /node_modules/,
-                        loader: 'babel-loader',
-                        options: {
-                            cacheDirectory: true,
-                            cacheCompression: false
-                        }
+                        use: [
+                            {
+                                loader: 'babel-loader',
+                                options: {
+                                    cacheDirectory: true,
+                                    cacheCompression: false
+                                }
+                            },
+                            'ts-loader'
+                        ]
                     }
                 ]
             }
@@ -68,7 +74,7 @@ module.exports = {
         port: 3000
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.ts', 'tsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         alias: {
             '@': path.resolve(__dirname, 'src')
         }
