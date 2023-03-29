@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import './app.less';
 
 const App = () => {
 
@@ -11,6 +12,7 @@ const App = () => {
     return <>
         <h3>hello react!</h3>
         <button
+            className="btn"
             onClick={handleClick}
         >You click it {count} times.</button>
     </>

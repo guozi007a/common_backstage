@@ -7,6 +7,9 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
+        // 配置后 不通过import引入React也不会报错了
+        // 无需额外安装
+        "plugin:react/jsx-runtime",
         "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [
@@ -18,10 +21,7 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint",
-        // 配置后 不通过import引入React也不会报错了
-        // 无需额外安装
-        "plugin:react/jsx-runtime"
+        "@typescript-eslint"
     ],
     "rules": {
     }
