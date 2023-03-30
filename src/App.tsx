@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import { Button } from 'antd';
-import 'antd/dist/reset.css';
 
 const App: FC = () => (
   <div className="App">
