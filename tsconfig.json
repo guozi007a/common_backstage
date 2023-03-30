@@ -11,6 +11,8 @@
         "jsx": "react-jsx",
         // es模块引入和导出
         "esModuleInterop": true,
+        // 解决找不到xxx模块的问题
+        "moduleResolution": "node",
         // 类型声明文件所在目录
         "typeRoots": [
             "./src/types",

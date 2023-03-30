@@ -1,21 +1,11 @@
-import { useState } from "react";
-import './app.less';
+import type { FC } from 'react';
+import { Button } from 'antd';
+import 'antd/dist/reset.css';
 
-const App = () => {
-
-    const [count, setCount] = useState(0);
-
-    const handleClick = () => {
-        setCount(count + 1);
-    }
-
-    return <>
-        <h3>hello react!</h3>
-        <button
-            className="btn"
-            onClick={handleClick}
-        >You click it {count} times.</button>
-    </>
-}
+const App: FC = () => (
+  <div className="App">
+    <Button type="primary">Button</Button>
+  </div>
+);
 
 export default App;
