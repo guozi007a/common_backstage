@@ -11,6 +11,9 @@ declare module '*.module.less' {
     const classes: { [key: string]: string };
     export default classes;
 }
+// 支持styled-components
+// 或者安装并配置@styles/styled-components
+declare module 'styled-components';
 
 // 支持各种图片
 declare module '*.png'
