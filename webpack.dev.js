@@ -54,6 +54,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            // 直接配置title是不起作用的
+            // 需要在index.html中的title元素中写入
+            // <%= htmlWebpackPlugin.options.title %>
+            title: 'React Common Backstage',
             template: path.resolve(__dirname, 'public/index.html')
         }),
         // open HMR
