@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const EslintWebpackPlugin = require("eslint-webpack-plugin");
 
+
 // 抽取公共部分
 const getStyleOptions = (importLoaders, loader) => {
     return [
@@ -58,7 +59,8 @@ module.exports = {
             // 需要在index.html中的title元素中写入
             // <%= htmlWebpackPlugin.options.title %>
             title: 'React Common Backstage',
-            template: path.resolve(__dirname, 'public/index.html')
+            template: path.resolve(__dirname, 'public/index.html'),
+            favicon: path.resolve(__dirname, 'public/favicon.ico')
         }),
         // open HMR
         new ReactRefreshPlugin(),
