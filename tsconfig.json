@@ -13,6 +13,8 @@
         "esModuleInterop": true,
         // 解决找不到xxx模块的问题
         "moduleResolution": "node",
+        // 解决无法resolve json数据的问题
+        "resolveJsonModule": true,
         // 类型声明文件所在目录
         "typeRoots": [
             "./src/types",
