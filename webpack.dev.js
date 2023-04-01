@@ -36,6 +36,10 @@ module.exports = {
                         use: getStyleOptions(2, 'less-loader')
                     },
                     {
+                        test: /\.ico$/,
+                        type: 'asset'
+                    },
+                    {
                         test: /\.(js|jsx|ts|tsx)$/,
                         exclude: /node_modules/,
                         use: [
@@ -59,8 +63,7 @@ module.exports = {
             // 需要在index.html中的title元素中写入
             // <%= htmlWebpackPlugin.options.title %>
             title: 'React Common Backstage',
-            template: path.resolve(__dirname, 'public/index.html'),
-            favicon: path.resolve(__dirname, 'public/favicon.ico')
+            template: path.resolve(__dirname, 'public/index.html')
         }),
         // open HMR
         new ReactRefreshPlugin(),

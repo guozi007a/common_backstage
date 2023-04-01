@@ -41,6 +41,10 @@ module.exports = {
                         use: getStyleOptions(2, 'less-loader')
                     },
                     {
+                        test: /\.ico$/,
+                        type: 'asset'
+                    },
+                    {
                         test: /\.(js|jsx|ts|tsx)$/,
                         exclude: /node_modules/,
                         use: [
