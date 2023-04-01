@@ -33,5 +33,8 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        // 不允许混合使用空格键和tab键进行缩进，
+        // 设置为0，即可以混用，实际开发中肯定是要混用的
+        "no-mixed-spaces-and-tabs": 0
     }
 }
