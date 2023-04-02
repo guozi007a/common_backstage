@@ -10,7 +10,7 @@ import Login from './pages/login';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename='.'>
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
