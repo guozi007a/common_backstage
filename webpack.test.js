@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // 抽取公共部分
 const getStyleOptions = (importLoaders, loader) => {
     return [
-        "style-loader",
+        MiniCssExtractPlugin.loader,
         {
             loader: "css-loader",
             options: {
@@ -18,7 +20,7 @@ const getStyleOptions = (importLoaders, loader) => {
 }
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         index: './src/index.tsx'
     },
@@ -51,8 +53,10 @@ module.exports = {
                             {
                                 loader: 'babel-loader',
                                 options: {
+                                    // 开启缓存
                                     cacheDirectory: true,
-                                    cacheCompression: false
+                                    // 开启压缩
+                                    cacheCompression: true
                                 }
                             },
                             'ts-loader'
@@ -71,8 +75,49 @@ module.exports = {
             template: path.resolve(__dirname, 'public/index.html'),
             favicon: path.resolve(__dirname, 'public/favicon.ico')
         }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash:8].css',
+            chunkFilename: '[name].[contenthash:8].chunk.css',
+            runtime: true
+        }),
     ],
-    optimization: {},
+    optimization: {
+        // 使用代码分割
+        splitChunks: {
+            chunks: 'all'
+        },
+        minimizer: [
+            new CssMinimizerPlugin({
+                exclude: /node_modules/,
+                // 多进程压缩
+                parallel: true,
+                minimizerOptions: {
+                    // 移除css注释
+                    preset: [
+                        "default",
+                        {
+                            discardComments: { removeAll: true },
+                        }
+                    ]
+                }
+            }),
+            // 开启压缩
+            new TerserPlugin({
+                exclude: /node_modules/,
+                // 开启多进程压缩
+                parallel: true,
+                // 删除注释
+                terserOptions: {
+                    // 开启gzip压缩
+                    compress: true,
+                    format: {
+                        comments: false,
+                    },
+                },
+                extractComments: false
+            })
+        ]
+    },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         alias: {
