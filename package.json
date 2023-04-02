@@ -2,6 +2,7 @@
   "name": "common_backstage",
   "version": "1.0.0",
   "description": "backstage of all stage",
+  "homepage": "https://guozia007.gitee.io/common_backstage",
   "main": "index.js",
   "scripts": {
     "test": "webpack --config webpack.test.js",
