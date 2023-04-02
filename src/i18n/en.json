@@ -1,4 +1,15 @@
 {
+    "lang": {
+        "cn": "CN",
+        "en": "EN"
+    },
+    "login": {
+        "title": "BackStage Login",
+        "username": "Username",
+        "password": "Password",
+        "remember": "Remember me",
+        "submit": "Submit"
+    },
     "header": {
         "register":"Register",
         "signin":"Sign In",

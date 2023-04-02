@@ -1,4 +1,15 @@
 {
+    "lang": {
+        "cn": "中",
+        "en": "英"
+    },
+    "login": {
+        "title": "系统登录",
+        "username": "用户名",
+        "password": "密码",
+        "remember": "记住我",
+        "submit": "提交"
+    },
     "header": {
         "register":"注册",
         "signin":"登陆",
