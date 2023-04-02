@@ -8,7 +8,7 @@
         "username": "用户名",
         "password": "密码",
         "remember": "记住我",
-        "submit": "提交"
+        "submit": "登录"
     },
     "header": {
         "register":"注册",
