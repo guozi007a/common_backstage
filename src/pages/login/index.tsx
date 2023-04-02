@@ -6,6 +6,7 @@ import {
 } from './styled';
 import LoginForm from './LoginForm';
 import SwitchLang from './SwitchLang';
+import { useTranslation } from 'react-i18next';
 
 const onFinish = (values: any) => {
   console.log('Success:', values);
@@ -17,14 +18,15 @@ const onFinishFailed = (errorInfo: any) => {
 
 const Login: FC = () => {
     
+    const { t } = useTranslation();
 
     return <LoginWrap>
         <LoginContainer>
             <LoginTitle>
-                <span>BackStage Login</span>
+                <span>{t('login.title')}</span>
                 <SwitchLang />
             </LoginTitle>
-            <LoginForm />
+            <LoginForm t={t} />
         </LoginContainer>
     </LoginWrap>
 }

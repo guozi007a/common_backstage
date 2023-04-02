@@ -1,15 +1,27 @@
 .ant-form {
     margin-top: 40px;
 
+    .ant-input-affix-wrapper {
+        background-color: transparent;
+        border: 1px solid #999;
+
+        .ant-input-prefix {
+            color: #fff;
+        }
+    }
+
     .ant-form-item-control {
         margin: auto;
 
         .ant-input {
-            height: 48px;
+            height: 40px;
             background-color: transparent;
-            border: 1px solid #999;
             color: #fff;
             font-size: 20px;
+
+            &::placeholder {
+                color: #989797;
+            }
         }
     }
 

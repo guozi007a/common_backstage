@@ -1,6 +1,11 @@
 import { FC } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './loginForm.less';
+
+type FormProp = {
+    t: (arg: string)=>string
+}
 
 const onFinish = (values: any) => {
   console.log('Success:', values);
@@ -10,7 +15,9 @@ const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
 
-const LoginForm: FC = () => {
+const LoginForm: FC<FormProp> = (props: FormProp) => {
+
+    const { t } = props;
 
     return <Form
         name="basic"
@@ -25,25 +32,25 @@ const LoginForm: FC = () => {
             name="username"
             rules={[{ required: true, message: 'Please input your username!' }]}
         >
-            <Input />
+            <Input prefix={<UserOutlined className="user-form-item-icon" />} placeholder={t('login.username')} />
         </Form.Item>
 
         <Form.Item
             name="password"
             rules={[{ required: true, message: 'Please input your password!' }]}
         >
-            <Input.Password />
+            <Input.Password prefix={<LockOutlined className="psw-form-item-icon" />} placeholder={t('login.password')} />
         </Form.Item>
 
         <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox>Remember me</Checkbox>
+            <Checkbox>{t('login.remember')}</Checkbox>
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}
             className='submit_btn_wrap'
         >
             <Button type="primary" htmlType="submit">
-                Submit
+                {t('login.submit')}
             </Button>
         </Form.Item>
     </Form>
