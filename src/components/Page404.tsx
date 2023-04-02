@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-const Page404 = () => {
+const Page404: FC = () => {
     
     return <>
     

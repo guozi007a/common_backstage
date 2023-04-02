@@ -6,15 +6,9 @@ import {
 } from './styled';
 import LoginForm from './LoginForm';
 import SwitchLang from './SwitchLang';
+import LoginKey from './LoginKey';
 import { useTranslation } from 'react-i18next';
 
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
 
 const Login: FC = () => {
     
@@ -28,6 +22,7 @@ const Login: FC = () => {
             </LoginTitle>
             <LoginForm t={t} />
         </LoginContainer>
+        <LoginKey />
     </LoginWrap>
 }
 
