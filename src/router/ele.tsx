@@ -9,6 +9,7 @@ const suspenseHOC = (Component: React.FC) => {
 
 const Home = lazy(() => import('@/pages/home'));
 const Login = lazy(() => import('@/pages/login'));
+const Page404 = lazy(() => import('@/components/page404'));
 
 export const ele: RouteObject[] = [
     {
@@ -18,5 +19,9 @@ export const ele: RouteObject[] = [
     {
         path: '/login',
         element: suspenseHOC(Login)
+    },
+    {
+        path: '*',
+        element: suspenseHOC(Page404)
     }
 ];
