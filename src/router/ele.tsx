@@ -1,14 +1,22 @@
+import { lazy, Suspense } from 'react';
 import { RouteObject } from 'react-router-dom';
-import Home from '../pages/home';
-import Login from '../pages/login';
+
+const suspenseHOC = (Component: React.FC) => {
+    return <Suspense fallback={<span>Loading...</span>}>
+        <Component />
+    </Suspense>
+}
+
+const Home = lazy(() => import('@/pages/home'));
+const Login = lazy(() => import('@/pages/login'));
 
 export const ele: RouteObject[] = [
     {
         path: '/',
-        element: <Home />
+        element: suspenseHOC(Home)
     },
     {
         path: '/login',
-        element: <Login />
+        element: suspenseHOC(Login)
     }
 ];

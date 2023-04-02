@@ -1,15 +1,32 @@
 import { FC } from 'react';
-import { useNavigate } from "react-router-dom";
-import { Button } from 'antd';
+import {
+    LoginWrap,
+    LoginContainer,
+    LoginTitle
+} from './styled';
+import LoginForm from './LoginForm';
+import SwitchLang from './SwitchLang';
+
+const onFinish = (values: any) => {
+  console.log('Success:', values);
+};
+
+const onFinishFailed = (errorInfo: any) => {
+  console.log('Failed:', errorInfo);
+};
 
 const Login: FC = () => {
     
-    const navigate = useNavigate();
 
-    return <>
-        <h3>Login</h3>
-        <Button type="primary" onClick={() => {navigate('/')}}>to login page</Button>
-    </>
+    return <LoginWrap>
+        <LoginContainer>
+            <LoginTitle>
+                <span>BackStage Login</span>
+                <SwitchLang />
+            </LoginTitle>
+            <LoginForm />
+        </LoginContainer>
+    </LoginWrap>
 }
 
 export default Login;
