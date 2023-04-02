@@ -26,7 +26,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'lib'),
         filename: '[name].[contenthash:8].js',
-        chunkFilename: '[name].[contenthash:8].chunk.js'
+        chunkFilename: '[name].[contenthash:8].chunk.js',
+        clean: true
     },
     module: {
         rules: [
