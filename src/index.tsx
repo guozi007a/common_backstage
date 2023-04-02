@@ -7,7 +7,7 @@ import App from './router';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
         <App />
     </BrowserRouter>
 )
