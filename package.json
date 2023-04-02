@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "backstage of all stage",
   "private": false,
-  "homepage": ".",
+  "homepage": "https://gitee.com/guozia007/common_backstage",
   "main": "index.js",
   "scripts": {
     "test": "webpack --config webpack.test.js",
