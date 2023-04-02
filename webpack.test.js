@@ -1,7 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const EslintWebpackPlugin = require("eslint-webpack-plugin");
 
 
 // 抽取公共部分
@@ -21,8 +19,15 @@ const getStyleOptions = (importLoaders, loader) => {
 
 module.exports = {
     mode: 'development',
-    // 入口文件不再是./src/index.js了
-    entry: './src/index.tsx',
+    entry: {
+        index: './src/index.tsx'
+    },
+    output: {
+        path: path.resolve(__dirname, 'lib'),
+        filename: '[name].[contenthash:8].js',
+        chunkFilename: '[name].[contenthash:8].chunk.js',
+        clean: true
+    },
     module: {
         rules: [
             {
@@ -66,17 +71,6 @@ module.exports = {
             template: path.resolve(__dirname, 'public/index.html'),
             favicon: path.resolve(__dirname, 'public/favicon.ico')
         }),
-        // open HMR
-        new ReactRefreshPlugin(),
-        new EslintWebpackPlugin({
-            exclude: 'node_modules',
-            // 检查jsx js json文件
-            extensions: ["jsx", "js", "json", 'ts', 'tsx'],
-            // 只对修改内容的文件做检查
-            lintDirtyModulesOnly: true,
-            // 开启多线程
-            threads: true
-        })
     ],
     optimization: {},
     resolve: {
