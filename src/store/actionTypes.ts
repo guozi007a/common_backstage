@@ -1,0 +1,1 @@
+export const injectAccount = 'INJECT_ACCOUNT';

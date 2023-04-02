@@ -4,14 +4,17 @@ import './styles/common.less';
 import 'antd/dist/reset.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './router';
+import { Provider } from 'react-redux';
+import store from '@/store';
+import PROFILE_ROOT_URL from '@/config/profileRootUrl';
 
 console.log('env: ', process.env.NODE_ENV);
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-    // 配置basename，不然部署到gitee后白屏
-    // 部署服务器时，使用nginx配置，这里就不用配置basename了
-    <BrowserRouter basename={`${process.env.NODE_ENV === 'development' ? '' : '/common_backstage/'}`}>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter basename={`${process.env.NODE_ENV === 'development' ? '' : PROFILE_ROOT_URL}`}>
+            <App />
+        </BrowserRouter>
+    </Provider>
 )
