@@ -6,7 +6,7 @@
   "homepage": "https://gitee.com/guozia007/common_backstage",
   "main": "index.js",
   "scripts": {
-    "test": "webpack --config webpack.test.js",
+    "build:dev": "webpack --config webpack.test.js",
     "start": "webpack serve --config webpack.dev.js",
     "prettier": "prettier --write .",
     "build": "webpack"
