@@ -81,7 +81,15 @@ module.exports = {
     optimization: {},
     devtool: 'cheap-module-source-map',
     devServer: {
-        port: 3000
+        port: 3000,
+        client: {
+            // 出现警告或报错时，默认在浏览器中显示全屏覆盖。
+            // 这里设置为false，就不会覆盖在浏览器上了
+            overlay: {
+                errors: true,
+                warnings: false
+            }
+        }
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
