@@ -10,7 +10,7 @@ import Login from './pages/login';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter basename='https://gitee.com/guozia007/common_backstage'>
+    <BrowserRouter>
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
