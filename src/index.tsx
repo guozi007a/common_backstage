@@ -7,6 +7,7 @@ import App from './router';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
+    // 配置basename，不然部署后白屏
     <BrowserRouter basename='/common_backstage/'>
         <App />
     </BrowserRouter>
