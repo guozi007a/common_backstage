@@ -1,8 +1,9 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, FC, ReactNode } from 'react';
 import { RouteObject } from 'react-router-dom';
+import { defaultFB, loginFB } from './fallbackStyled';
 
-const suspenseHOC = (Component: React.FC) => {
-    return <Suspense fallback={<span>Loading...</span>}>
+export const suspenseHOC = (Component: FC, fb?: ()=>ReactNode) => {
+    return <Suspense fallback={fb ? fb() : defaultFB()}>
         <Component />
     </Suspense>
 }
@@ -18,7 +19,7 @@ export const ele: RouteObject[] = [
     },
     {
         path: '/login',
-        element: suspenseHOC(Login)
+        element: suspenseHOC(Login, loginFB)
     },
     {
         path: '*',
