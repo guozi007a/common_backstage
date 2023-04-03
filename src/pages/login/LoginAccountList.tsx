@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Modal, Space, Table, Tag, Button } from 'antd';
+import { Modal, Space, Table, Tag, Button, message } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { accountsList, AccountType, limitTagColor } from '@/config/accounts';
 import { getInjectingAccount } from '@/store/actions';
@@ -8,7 +8,7 @@ import { IA } from '@/store/payloadTypes';
 
 type ListProp = {
     isOpen: boolean,
-    setIsOpen: (bool: boolean) => any,
+    setIsOpen: (bool: boolean) => any, // eslint-disable-line
 }
 
 const LoginAccountList: FC<ListProp> = (props: ListProp) => {
@@ -20,6 +20,7 @@ const LoginAccountList: FC<ListProp> = (props: ListProp) => {
 
     const handleInject = ({username, password}: IA) => {
         dispatch(getInjectingAccount({ username, password }));
+        message.success('Inject success!');
     }
 
     const columns: ColumnsType<AccountType> = [

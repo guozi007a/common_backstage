@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { IA } from '@/store/payloadTypes';
 
 type FormProp = {
-    t: (arg: string)=>string
+    t: (arg: string) => string // eslint-disable-line
 }
 
 
