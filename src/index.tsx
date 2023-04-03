@@ -6,14 +6,12 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './router';
 import { Provider } from 'react-redux';
 import store from '@/store';
-import PROFILE_ROOT_URL from '@/config/profileRootUrl';
-
-console.log('env: ', process.env.NODE_ENV);
+// import PROFILE_ROOT_URL from '@/config/profileRootUrl';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        <BrowserRouter basename={`${process.env.NODE_ENV === 'development' ? '' : PROFILE_ROOT_URL}`}>
+        <BrowserRouter /* basename={`${process.env.NODE_ENV === 'development' ? '' : PROFILE_ROOT_URL}`} */>
             <App />
         </BrowserRouter>
     </Provider>
