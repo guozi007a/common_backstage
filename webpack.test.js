@@ -28,7 +28,13 @@ module.exports = {
         path: path.resolve(__dirname, 'lib'),
         filename: '[name].[contenthash:8].js',
         chunkFilename: '[name].[contenthash:8].chunk.js',
-        clean: true
+        clean: {
+            // .spa空文件是giteepage提供的解决线上刷新404的方案
+            // https://gitee.com/help/articles/4237
+            // 该文件应该始终放在打包目录的根目录下，
+            // 所以打包时不应被清除
+            keep: /\.spa$/
+        }
     },
     module: {
         rules: [
