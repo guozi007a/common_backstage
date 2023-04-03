@@ -1,9 +1,12 @@
 import { FC, useEffect } from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './loginForm.less';
 import { useSelector } from 'react-redux';
 import { IA } from '@/store/payloadTypes';
+import { useNavigate } from 'react-router-dom';
+import Local from '@/utils/local';
+import { USERINFO } from '@/config/loginInfo';
 
 type FormProp = {
     t: (arg: string) => string // eslint-disable-line
@@ -19,10 +22,16 @@ const LoginForm: FC<FormProp> = (props: FormProp) => {
     const { t } = props;
     const { username, password } = useSelector((state: StateType) => state.injectReducer);
     const [form] = Form.useForm();
+    const navigate = useNavigate();
     
 
     const onFinish = (values: any) => {
-        console.log('Success:', values);
+        // console.log('Success:', values);
+        const local = new Local(USERINFO);
+        const { username, password } = values;
+        local._value = { username, password };
+        message.success('Login Success!');
+        navigate('/');
     };
 
     const onFinishFailed = (errorInfo: any) => {
