@@ -2,55 +2,67 @@ import { FC } from 'react';
 import { Modal, Space, Table, Tag, Button } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { accountsList, AccountType, limitTagColor } from '@/config/accounts';
+import { getInjectingAccount } from '@/store/actions';
+import { connect } from 'react-redux';
 
 type ListProp = {
     isOpen: boolean,
-    setIsOpen: (bool: boolean)=>any
+    setIsOpen: (bool: boolean) => any,
+    getInjectingAccount: any
 }
-
-const columns: ColumnsType<AccountType> = [
-    {
-        title: 'username',
-        dataIndex: 'username',
-        key: 'username',
-    },
-    {
-        title: 'password',
-        dataIndex: 'password',
-        key: 'password',
-    },
-    {
-        title: 'limits',
-        key: 'limits',
-        dataIndex: 'limits',
-        render: (_, { limits }) => (
-        <>
-            {limits.map((limit) => {
-                const color = limitTagColor(limit);
-            return (
-                <Tag color={color} key={limit}>
-                    {limit}
-                </Tag>
-            );
-            })}
-        </>
-        ),
-    },
-    {
-        title: 'Action',
-        key: 'action',
-        render: (_, record) => (
-            <Space size="small">
-                <Button type='primary' title='click to use this account'>Inject</Button>
-            </Space>
-        ),
-    },
-];
 
 const LoginAccountList: FC<ListProp> = (props: ListProp) => {
 
 
-    const { isOpen, setIsOpen } = props;
+    const { isOpen, setIsOpen, getInjectingAccount } = props;
+
+    const columns: ColumnsType<AccountType> = [
+        {
+            title: 'username',
+            dataIndex: 'username',
+            key: 'username',
+        },
+        {
+            title: 'password',
+            dataIndex: 'password',
+            key: 'password',
+        },
+        {
+            title: 'limits',
+            key: 'limits',
+            dataIndex: 'limits',
+            render: (_, { limits }) => (
+            <>
+                {limits.map((limit) => {
+                    const color = limitTagColor(limit);
+                return (
+                    <Tag color={color} key={limit}>
+                        {limit}
+                    </Tag>
+                );
+                })}
+            </>
+            ),
+        },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (_, record) => (
+                <Space size="small">
+                    <Button type='primary' title='click to use this account'
+                        onClick={() => {
+                            getInjectingAccount({
+                                username: record.username,
+                                password: record.password
+                            })
+                        }}
+                    >
+                        Inject
+                    </Button>
+                </Space>
+            ),
+        },
+    ];
 
     const handleOk = () => {
         setIsOpen(false);
@@ -73,4 +85,7 @@ const LoginAccountList: FC<ListProp> = (props: ListProp) => {
     </>
 }
 
-export default LoginAccountList;
+export default connect(
+    state => state,
+    { getInjectingAccount }
+)(LoginAccountList);

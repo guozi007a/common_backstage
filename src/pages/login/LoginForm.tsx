@@ -2,22 +2,28 @@ import { FC } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './loginForm.less';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { getInjectingAccount } from '@/store/actions';
+// import reducers from '@/store/reducers';
 
 type FormProp = {
     t: (arg: string)=>string
 }
-
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
+// type Form.useFormInstance = (): FormInstance;
 
 const LoginForm: FC<FormProp> = (props: FormProp) => {
 
     const { t } = props;
+    
+    // const form = Form.useFormInstance();
+
+    const onFinish = (values: any) => {
+        console.log('Success:', values);
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+        console.log('Failed:', errorInfo);
+    };
 
     return <Form
         name="basic"

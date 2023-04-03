@@ -14,7 +14,10 @@ const initAccount = {
 const injectReducer = (state = initAccount, action: ActionType) => {
     switch (action.type) {
         case types.injectAccount:
-            return action.data;
+            return {
+                ...state,
+                ...action.data
+            };
         default:
             return state;
     }
