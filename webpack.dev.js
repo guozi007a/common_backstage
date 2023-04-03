@@ -82,6 +82,8 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     devServer: {
         port: 3000,
+        // 解决本地路由刷新404的问题
+        historyApiFallback: true,
         client: {
             // 出现警告或报错时，默认在浏览器中显示全屏覆盖。
             // 这里设置为false，就不会覆盖在浏览器上了
