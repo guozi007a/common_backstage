@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Modal, Space, Table, Tag, Button } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import {accountsList, AccountType, limitTagColor } from '@/config/accounts';
+import { accountsList, AccountType, limitTagColor } from '@/config/accounts';
 
 type ListProp = {
     isOpen: boolean,
