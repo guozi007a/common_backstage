@@ -3,18 +3,24 @@ import { Modal, Space, Table, Tag, Button } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { accountsList, AccountType, limitTagColor } from '@/config/accounts';
 import { getInjectingAccount } from '@/store/actions';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { IA } from '@/store/payloadTypes';
 
 type ListProp = {
     isOpen: boolean,
     setIsOpen: (bool: boolean) => any,
-    getInjectingAccount: any
 }
 
 const LoginAccountList: FC<ListProp> = (props: ListProp) => {
 
 
-    const { isOpen, setIsOpen, getInjectingAccount } = props;
+    const { isOpen, setIsOpen } = props;
+    const dispatch = useDispatch();
+    
+
+    const handleInject = ({username, password}: IA) => {
+        dispatch(getInjectingAccount({ username, password }));
+    }
 
     const columns: ColumnsType<AccountType> = [
         {
@@ -51,7 +57,7 @@ const LoginAccountList: FC<ListProp> = (props: ListProp) => {
                 <Space size="small">
                     <Button type='primary' title='click to use this account'
                         onClick={() => {
-                            getInjectingAccount({
+                            handleInject({
                                 username: record.username,
                                 password: record.password
                             })
@@ -85,7 +91,4 @@ const LoginAccountList: FC<ListProp> = (props: ListProp) => {
     </>
 }
 
-export default connect(
-    state => state,
-    { getInjectingAccount }
-)(LoginAccountList);
+export default LoginAccountList;

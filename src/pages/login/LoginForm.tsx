@@ -1,21 +1,25 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './loginForm.less';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getInjectingAccount } from '@/store/actions';
-// import reducers from '@/store/reducers';
+import { useSelector } from 'react-redux';
+import { IA } from '@/store/payloadTypes';
 
 type FormProp = {
     t: (arg: string)=>string
 }
-// type Form.useFormInstance = (): FormInstance;
+
+
+interface StateType {
+    injectReducer: IA;
+}
 
 const LoginForm: FC<FormProp> = (props: FormProp) => {
 
     const { t } = props;
+    const { username, password } = useSelector((state: StateType) => state.injectReducer);
+    const [form] = Form.useForm();
     
-    // const form = Form.useFormInstance();
 
     const onFinish = (values: any) => {
         console.log('Success:', values);
@@ -25,6 +29,12 @@ const LoginForm: FC<FormProp> = (props: FormProp) => {
         console.log('Failed:', errorInfo);
     };
 
+    useEffect(() => { 
+        
+        form.setFieldsValue({ username, password });
+
+    }, [username, password])
+
     return <Form
         name="basic"
         wrapperCol={{ span: 18 }}
@@ -33,6 +43,7 @@ const LoginForm: FC<FormProp> = (props: FormProp) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        form={form}
     >
         <Form.Item
             name="username"

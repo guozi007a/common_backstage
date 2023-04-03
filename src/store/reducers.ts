@@ -1,9 +1,13 @@
-import * as types from './actionTypes';
+import * as actionTypes from './actionTypes';
+// import * as payloadTypes from './payloadTypes';
 import { combineReducers } from 'redux';
+import {
+    IA
+} from './payloadTypes';
 
-interface ActionType {
+interface ActionType<T> {
     type: string;
-    data?: any
+    data?: T
 }
 
 /** 注入的账户 */
@@ -11,9 +15,13 @@ const initAccount = {
     username: '',
     password: ''
 };
-const injectReducer = (state = initAccount, action: ActionType) => {
+
+const injectReducer = (
+    state: IA = initAccount,
+    action: ActionType<IA>
+) => {
     switch (action.type) {
-        case types.injectAccount:
+        case actionTypes.injectAccount:
             return {
                 ...state,
                 ...action.data

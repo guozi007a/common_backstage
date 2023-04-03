@@ -1,8 +1,10 @@
-import * as types from './actionTypes';
+import * as actionTypes from './actionTypes';
+// import * as payloadTypes from './payloadTypes';
+import {
+    IA
+} from './payloadTypes';
 
-/** 获取注入账户的账号密码 */
-type AccountType = {
-    username: string,
-    password: string
-}
-export const getInjectingAccount = (data: AccountType) => ({ type: types.injectAccount, data });
+export const getInjectingAccount = (data: IA) => ({
+    type: actionTypes.injectAccount,
+    data
+});
