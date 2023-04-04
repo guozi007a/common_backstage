@@ -9,15 +9,14 @@ type LangProp = {
 }
 
 const SwitchWrap = styled.main`
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    transform: translateY(-50%);
+    position: fixed;
+    z-index: 2;
+    top: 30%;
     right: 0;
     width: 82px;
     height: 34px;
     background-color: #1677ff;
-    border-radius: 17px;
+    border-radius: 17px 0 0 17px;
     box-shadow: inset 0 0 4px 4px rgba(255, 255, 255, .2);
     display: flex;
 `;

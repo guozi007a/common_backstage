@@ -2,6 +2,8 @@ import { FC } from 'react';
 import {
     LoginWrap,
     LoginContainer,
+    LoginPic,
+    LoginMain,
     LoginTitle
 } from './styled';
 import LoginForm from './LoginForm';
@@ -16,13 +18,16 @@ const Login: FC = () => {
 
     return <LoginWrap>
         <LoginContainer>
-            <LoginTitle>
-                <span>{t('login.title')}</span>
-                <SwitchLang />
-            </LoginTitle>
-            <LoginForm t={t} />
+            <LoginPic />
+            <LoginMain>
+                <LoginTitle>
+                    <span>{t('login.title')}</span>
+                </LoginTitle>
+                <LoginForm t={t} />
+            </LoginMain>
         </LoginContainer>
         <LoginKey />
+        <SwitchLang />
     </LoginWrap>
 }
 

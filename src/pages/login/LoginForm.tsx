@@ -12,7 +12,6 @@ type FormProp = {
     t: (arg: string) => string // eslint-disable-line
 }
 
-
 interface StateType {
     injectReducer: IA;
 }
