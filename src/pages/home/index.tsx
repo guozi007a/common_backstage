@@ -7,6 +7,7 @@ import {
     UploadOutlined,
     HomeOutlined,
     VideoCameraOutlined,
+    YuqueOutlined
 } from '@ant-design/icons';
 import './index.less';
 
@@ -22,7 +23,10 @@ const Home: FC = () => {
     return <>
         <Layout>
             <Sider trigger={null} collapsible collapsed={collapsed}>
-                <div className="logo" />
+                <div className="logo">
+                    <YuqueOutlined />
+                    <span className="logo_name">飞鸟系统</span>
+                </div>
                 <Menu
                 theme="dark"
                 mode="inline"
@@ -54,12 +58,12 @@ const Home: FC = () => {
                 })}
                 </Header>
                 <Content
-                style={{
-                    margin: '24px 16px',
-                    padding: 24,
-                    minHeight: '100vh',
-                    background: colorBgContainer,
-                }}
+                    style={{
+                        margin: '24px 16px',
+                        padding: 24,
+                        height: '100vh',
+                        background: colorBgContainer,
+                    }}
                 >
                 Content
                 </Content>
