@@ -18,17 +18,25 @@ export const LoginWrap = styled.main`
 `;
 export const LoginContainer = styled.section`
     position: relative;
-    width: 710px;
+    width: 700px;
     height: 397px;
     background-color: #fff; 
     border-radius: 20px;
     overflow: hidden;
     display: flex;
+
+    @media screen and (max-width: 880px) {
+        width: 390px;
+    }
 `;
 export const LoginPic = styled.aside`
-    width: 314px;
-    background: url(${loginPic}) no-repeat center center;
-    background-size: contain;
+    width: 0px;
+
+    @media screen and (min-width: 880px) {
+        width: 314px;
+        background: url(${loginPic}) no-repeat center center;
+        background-size: contain;
+    }
 `
 export const LoginMain = styled.section`
     position: relative;
