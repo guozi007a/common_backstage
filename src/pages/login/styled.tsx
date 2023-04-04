@@ -37,11 +37,11 @@ export const LoginPic = styled.aside`
         background: url(${loginPic}) no-repeat center center;
         background-size: contain;
     }
-`
+`;
 export const LoginMain = styled.section`
     position: relative;
     flex: 1;
-`
+`;
 export const LoginTitle = styled.header`
     position: relative;
     width: 100%;
@@ -51,4 +51,14 @@ export const LoginTitle = styled.header`
     font-size: 40px;
     font-weight: 700;
     color: #5c6adc;
+`;
+export const CopyrightDeclare = styled.p`
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #8c8c8c;
 `;

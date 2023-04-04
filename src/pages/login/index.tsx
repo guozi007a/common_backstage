@@ -4,7 +4,8 @@ import {
     LoginContainer,
     LoginPic,
     LoginMain,
-    LoginTitle
+    LoginTitle,
+    CopyrightDeclare
 } from './styled';
 import LoginForm from './LoginForm';
 import SwitchLang from './SwitchLang';
@@ -28,6 +29,7 @@ const Login: FC = () => {
         </LoginContainer>
         <LoginKey />
         <SwitchLang />
+        <CopyrightDeclare> Copyright © 2020-2023 common_backstage All Rights Reserved. </CopyrightDeclare>
     </LoginWrap>
 }
 
