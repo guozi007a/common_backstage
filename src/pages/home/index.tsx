@@ -1,24 +1,48 @@
 import React, { FC, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Layout, Menu, theme } from 'antd';
+import type { MenuProps } from 'antd';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    HomeOutlined,
-    VideoCameraOutlined,
     YuqueOutlined
 } from '@ant-design/icons';
 import './index.less';
+import { items } from './items';
+
+type NavProp = {
+    key: React.Key,
+    keyPath: string[],
+}
 
 const { Header, Sider, Content } = Layout;
+
 
 const Home: FC = () => {
 
     const [collapsed, setCollapsed] = useState(false);
+    const [openKeys, setOpenKeys] = useState(['index']);
+    const navigate = useNavigate();
+
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+
+    const rootSubmenuKeys = ['index', 'merchant', 'commodity'];
+
+    const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+        const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+        if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
+            setOpenKeys(keys);
+        } else {
+            setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+        }
+    };
+
+    const handleClick = ({ key, keyPath }: NavProp) => {
+        console.log('点击了key: ', key, '\n点击了KeyPath: ', keyPath);
+        navigate(`/${key}`);
+    }
 
     return <>
         <Layout>
@@ -28,34 +52,21 @@ const Home: FC = () => {
                     <span className="logo_name">飞鸟系统</span>
                 </div>
                 <Menu
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                items={[
-                    {
-                        key: '1',
-                        icon: <HomeOutlined />,
-                        label: '首页',
-                    },
-                    {
-                        key: '2',
-                        icon: <VideoCameraOutlined />,
-                        label: 'nav 2',
-                    },
-                    {
-                        key: '3',
-                        icon: <UploadOutlined />,
-                        label: 'nav 3',
-                    },
-                ]}
+                    theme="dark"
+                    mode="inline"
+                    defaultSelectedKeys={['']}
+                    openKeys={openKeys}
+                    onOpenChange={onOpenChange}
+                    items={items}
+                    onClick={handleClick}
                 />
             </Sider>
             <Layout className="site-layout">
                 <Header style={{ background: colorBgContainer }}>
-                {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                    className: 'trigger',
-                    onClick: () => setCollapsed(!collapsed),
-                })}
+                    {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                        className: 'trigger',
+                        onClick: () => setCollapsed(!collapsed),
+                    })}
                 </Header>
                 <Content
                     style={{
@@ -65,7 +76,7 @@ const Home: FC = () => {
                         background: colorBgContainer,
                     }}
                 >
-                Content
+                    <Outlet />
                 </Content>
             </Layout>
         </Layout>

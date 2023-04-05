@@ -39,6 +39,8 @@ module.exports = {
         // 当有未使用的变量时，只警告，不报错
         "no-unused-vars": 1,
         // 关闭any检查，有时候需要用到any
-        "@typescript-eslint/no-explicit-any": 0
+        "@typescript-eslint/no-explicit-any": 0,
+        // 关闭严格的null检查，因为设置!断言后它还是会警告
+        "@typescript-eslint/no-non-null-assertion": 0,
     }
 }
