@@ -1,5 +1,5 @@
 const path = require('path');
-const PROFILE_ROOT_URL = require('@/config/profileRootUrl_module');
+const PROFILE_ROOT_URL = require('./src/config/profileRootUrl_module');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
