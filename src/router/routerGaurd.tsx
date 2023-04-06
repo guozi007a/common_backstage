@@ -13,10 +13,8 @@ const RouterGaurd: FC<PropType> = (props: PropType) => {
 
     useEffect(() => { 
         const path = location.pathname;
-        if (path === '/') {
+        if (path === '/' || path === PROFILE_ROOT_URL) {
             navigate('/index', { replace: true });
-        } else if (path === PROFILE_ROOT_URL) {
-            navigate(PROFILE_ROOT_URL + 'index', { replace: true });
         }
     }, [])
 
