@@ -17,7 +17,7 @@ const RouterGaurd: FC<PropType> = (props: PropType) => {
         console.log('path === /: ', path === '/');
         console.log('path === root: ', path === PROFILE_ROOT_URL);
         
-        if (path === '/' || path === PROFILE_ROOT_URL) {
+        if (path === '/' || path === PROFILE_ROOT_URL || path === PROFILE_ROOT_URL.slice(0, -1)) {
             navigate('/index', { replace: true });
         }
     }, [])
