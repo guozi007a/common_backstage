@@ -28,7 +28,7 @@ const Login: FC = () => {
             </LoginMain>
         </LoginContainer>
         <LoginKey />
-        <SwitchLang />
+        <SwitchLang wrapClassName='in_login_page' />
         <CopyrightDeclare> Copyright © 2020-2023 common_backstage All Rights Reserved. </CopyrightDeclare>
     </LoginWrap>
 }

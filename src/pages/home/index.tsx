@@ -9,6 +9,8 @@ import {
 } from '@ant-design/icons';
 import './index.less';
 import { items } from './items';
+import HomeHead from './HomeHead';
+import NavTags from './Tags';
 
 type NavProp = {
     key: React.Key,
@@ -74,12 +76,14 @@ const Home: FC = () => {
                 />
             </Sider>
             <Layout className="site-layout">
-                <Header style={{ background: colorBgContainer }}>
+                <Header style={{ background: colorBgContainer, display: 'flex', alignItems: 'center' }}>
                     {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                         className: 'trigger',
                         onClick: () => setCollapsed(!collapsed),
                     })}
+                    <HomeHead />
                 </Header>
+                <NavTags />
                 <Content
                     style={{
                         margin: '24px 16px',
