@@ -1,5 +1,4 @@
 const path = require('path');
-const PROFILE_ROOT_URL = require('./src/config/profileRootUrl_module');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -31,7 +30,7 @@ module.exports = {
         filename: '[name].[contenthash:8].js',
         chunkFilename: '[name].[contenthash:8].chunk.js',
         // 配置生产环境下的资源根路径
-        publicPath: PROFILE_ROOT_URL,
+        publicPath: '/common_backstage/',
         clean: {
             // .spa空文件是giteepage提供的解决线上刷新404的方案
             // https://gitee.com/help/articles/4237
