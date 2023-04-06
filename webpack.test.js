@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
+
 // 抽取公共部分
 const getStyleOptions = (importLoaders, loader) => {
     return [
@@ -28,6 +29,7 @@ module.exports = {
         path: path.resolve(__dirname, 'lib'),
         filename: '[name].[contenthash:8].js',
         chunkFilename: '[name].[contenthash:8].chunk.js',
+        publicPath: '/common_backstage/',
         clean: {
             // .spa空文件是giteepage提供的解决线上刷新404的方案
             // https://gitee.com/help/articles/4237
