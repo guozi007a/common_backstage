@@ -31,7 +31,7 @@ module.exports = {
         filename: '[name].[contenthash:8].js',
         chunkFilename: '[name].[contenthash:8].chunk.js',
         // 配置生产环境下的资源根路径
-        publicPath: PROFILE_ROOT_URL + '/',
+        publicPath: PROFILE_ROOT_URL,
         clean: {
             // .spa空文件是giteepage提供的解决线上刷新404的方案
             // https://gitee.com/help/articles/4237
