@@ -55,7 +55,9 @@ const Home: FC = () => {
     return <>
         <Layout>
             <Sider trigger={null} collapsible collapsed={collapsed}>
-                <div className="logo">
+                <div className="logo"
+                    onClick={() => {navigate('/index')}}
+                >
                     <YuqueOutlined />
                     <span className="logo_name">飞鸟系统</span>
                 </div>
