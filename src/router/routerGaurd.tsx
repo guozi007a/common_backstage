@@ -1,56 +1,28 @@
-import { Component, Suspense } from 'react';
-import { Navigate } from 'react-router-dom';
+import { FC, Suspense, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface PropType {
-    Comp: React.FC;
+    Comp: FC;
 }
 
-interface StateType {
-    toPath: string;
-}
+const RouterGaurd: FC<PropType> = (props: PropType) => {
 
-class RouterGaurd extends Component<PropType, StateType> {
+    const navigate = useNavigate();
 
-    constructor(props: PropType) {
-        super(props);
-
-        this.state = {
-            toPath: ''
-        }
-    }
-
-    static getDerivedStateFromProps() {
+    useEffect(() => { 
         const path = location.pathname;
+        if (path === '/') {
+            navigate('/index', { replace: true });
+        }
+    }, [])
 
-        console.log('path: ', path);
-        
-        
-        
-
-        return {
-            toPath: path
-        };
-    }
-
-    render() {
-
-        const { toPath } = this.state;
-
-        console.log('toPath: ', toPath);
-        
-
-        const { Comp } = this.props;
-
-        const C = 
-        <Suspense fallback={<span></span>}>
-            <Comp />
-        </Suspense>
-
-        return C;
-    }
+    return <Suspense fallback={<span></span>}>
+        <props.Comp />
+    </Suspense>
 }
 
-export const susHoc = (Comp: React.FC) => {
+
+export const susHoc = (Comp: FC) => {
 
     return <RouterGaurd Comp={Comp} />
 }
