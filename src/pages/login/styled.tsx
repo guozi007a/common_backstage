@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import loginBG from '@/images/login-bg.png';
+import loginPic from '@/images/login-aside-bg.png';
 
 
-const loginBG = 'http://static.yudao.iocoder.cn/static/img/bg.c05ff27e.png';
-const loginPic = 'http://static.yudao.iocoder.cn/static/img/pic.49137f73.png';
+// const loginBG = 'http://static.yudao.iocoder.cn/static/img/bg.c05ff27e.png';
+// const loginPic = 'http://static.yudao.iocoder.cn/static/img/pic.49137f73.png';
 
 export const LoginWrap = styled.main`
     position: relative;
