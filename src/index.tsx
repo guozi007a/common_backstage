@@ -11,7 +11,7 @@ import PROFILE_ROOT_URL from '@/config/profileRootUrl';
 const root = createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        <BrowserRouter basename={`${process.env.NODE_ENV === 'development' ? '' : '/common_backstage'}`}>
+        <BrowserRouter basename={`${process.env.NODE_ENV === 'development' ? '' : PROFILE_ROOT_URL}`}>
             <App />
         </BrowserRouter>
     </Provider>
