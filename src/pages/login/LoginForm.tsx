@@ -30,7 +30,7 @@ const LoginForm: FC<FormProp> = (props: FormProp) => {
         const { username, password } = values;
         local._value = { username, password };
         message.success('Login Success!');
-        navigate('/');
+        navigate('/index', { replace: true });
     };
 
     const onFinishFailed = (errorInfo: any) => {
