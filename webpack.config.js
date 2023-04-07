@@ -42,7 +42,7 @@ module.exports = {
                         use: getStyleOptions(2, 'less-loader')
                     },
                     {
-                        test: /\.(ico|png|jpg|jpeg|webp|svg)$/,
+                        test: /\.(ico|png|jpg|jpeg|webp|svg|gif)$/,
                         type: 'asset'
                     },
                     {
