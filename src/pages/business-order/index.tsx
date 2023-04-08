@@ -1,11 +1,11 @@
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
-
-
-const BussinessOrder = () => {
+const BussinessOrder: FC = () => {
 
     return <>
-        订单管理
+        <Outlet />
     </>
 }
 

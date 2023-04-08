@@ -1,11 +1,10 @@
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
 
-
-
-
-const Department = () => {
+const Department: FC = () => {
 
     return <>
-        部门管理
+        <Outlet />
     </>
 }
 

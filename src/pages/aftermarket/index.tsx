@@ -1,11 +1,10 @@
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
 
-
-
-
-const AfterMarket = () => {
+const AfterMarket: FC = () => {
 
     return <>
-        售后管理
+        <Outlet />
     </>
 }
 

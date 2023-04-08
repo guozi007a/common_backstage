@@ -1,11 +1,11 @@
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
-
-
-const Commodity = () => {
+const Commodity: FC = () => {
 
     return <>
-        产品管理
+        <Outlet />
     </>
 }
 

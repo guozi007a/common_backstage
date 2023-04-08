@@ -1,11 +1,11 @@
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
 
 
-
-
-const Authority = () => {
+const Authority: FC = () => {
 
     return <>
-        权限管理
+        <Outlet />
     </>
 }
 

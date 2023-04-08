@@ -1,11 +1,11 @@
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
-
-
-const Tenders = () => {
+const Tenders: FC = () => {
 
     return <>
-        项目管理
+        <Outlet />
     </>
 }
 

@@ -32,27 +32,39 @@ const Home: FC = () => {
         token: { colorBgContainer },
     } = theme.useToken();
 
-    // const rootSubmenuKeys = ['index', 'merchant', 'commodity'];
+    const rootSubmenuKeys: string[] = [];
+    items.forEach(v => rootSubmenuKeys.push(v.key as string));
 
     const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-        // const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-        // if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
-        //     setOpenKeys(keys);
-        // } else {
-        //     setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-        // }
-        setOpenKeys(keys);
+        const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+        if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
+            setOpenKeys(keys);
+        } else {
+            setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+        }
     };
 
     const handleClick = ({ key, keyPath }: NavProp) => {
-        // console.log('点击了key: ', key, '\n点击了KeyPath: ', keyPath);
-        navigate(`/${key}`);
+        const _keyPath: string[] = keyPath.map(v => {
+            return v.includes('_') ? v.replace(/.*_/, '') : v;
+        })
+        // console.log('点击了key: ', key, '\n点击了KeyPath: ', _keyPath);
+
+        const path = '/' + _keyPath.reverse().join('/');
+        navigate(path);
     }
 
     useEffect(() => { 
         const path = loca.pathname;
-        setSelectedKeys(path.split('/').slice(1));
-    }, [loca])
+        const keys = path.split('/').slice(1);
+        
+        if (keys.length === 1) {
+            setSelectedKeys(keys);
+        } else if (keys.length > 1) {
+            setSelectedKeys([`${keys[0]}_${keys.at(-1)}`]);
+        }
+        setOpenKeys(keys.reverse());
+    }, [loca.pathname])
 
     return <>
         <Layout>

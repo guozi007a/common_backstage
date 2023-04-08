@@ -1,9 +1,10 @@
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
-
-const Merchant = () => {
+const Merchant: FC = () => {
 
     return <>
-        商户管理
+        <Outlet />
     </>
 }
 

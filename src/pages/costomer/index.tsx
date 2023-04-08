@@ -1,11 +1,11 @@
+import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
-
-
-const Costomer = () => {
+const Costomer: FC = () => {
 
     return <>
-        客户管理
+        <Outlet />
     </>
 }
 
