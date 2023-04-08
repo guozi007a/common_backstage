@@ -23,6 +23,10 @@ module.exports = {
     mode: 'development',
     // 入口文件不再是./src/index.js了
     entry: './src/index.tsx',
+    output: {
+        // 约定根目录，解决刷新后找不到根文件的问题
+        publicPath: '/'
+    },
     module: {
         rules: [
             {
