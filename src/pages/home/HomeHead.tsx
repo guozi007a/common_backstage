@@ -65,7 +65,7 @@ const HomeHead: FC = () => {
 
     const handleBlur = () => {
         
-        inputRef.current.blur();
+        inputRef.current && inputRef.current.blur();
         setIsSpreadInput(false);
 
         if (searchVal) {

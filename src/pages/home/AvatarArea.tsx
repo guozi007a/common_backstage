@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { CaretDownFilled } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown } from 'antd';
+import { Link } from 'react-router-dom';
 
 const headImg = 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80';
 
@@ -47,7 +48,7 @@ const items: MenuProps['items'] = [
     {
         key: '2',
         label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.baidu.com">
+            <a target="_blank" rel="noopener noreferrer" href="https://gitee.com/guozia007/common_backstage">
                 项目地址
             </a>
         ),
@@ -55,9 +56,10 @@ const items: MenuProps['items'] = [
     {
         key: '3',
         label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                退出登录
-            </a>
+            // <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+            //     退出登录
+            // </a>
+            <Link to='/login' replace={true}>退出登录</Link>
         ),
     },
 ];
