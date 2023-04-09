@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect, ReactElement } from "react";
-import { Outlet, useNavigate, useLocation, Link, LinkProps } from "react-router-dom";
+import React, { FC, useState, useEffect } from "react";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { Layout, Menu, theme } from 'antd';
 import type { MenuProps } from 'antd';
 import {
@@ -56,51 +56,30 @@ const Home: FC = () => {
         navigate(path);
     }
 
-    // 查找label
-    const recurrenceItem = (arr: ItemProp[], v: string) => {
-        for (let i = 0; i < arr.length; i++) {
-            
-            if (arr[i].key === v) {
-                return arr[i].label;
-            }
-        }
-    }
 
     // 头部路由
     const handleBreads = (keyPath: string[]) => {
 
-        const path = keyPath.reverse();
-        let breadList: BreadItemType[] = [];
+        const titles: BreadItemType[] = [];
 
-        
-        if (path.length === 1) {
-            breadList = [{
-                title: recurrenceItem(items, path[0])
-            }];
-        } else {
-            breadList = path.map((v, i) => {
-                // if (i === path.length - 1 || !v.includes('_')) {
-                //     return {
-                //         title: ''
-                //     }
-                // } else {
-                //     return {
-                //         title: <Link to={`/${v.replace(/_/g, '/')}`}>{''}</Link>
-                //     }
-                // }
-                if (i === 0) {
-                    return {
-                        title: recurrenceItem(items, v)
-                    }
-                } else if (i === path.length - 1) {
-                    
-                }
-            })
+        const getLabel = (arr: ItemProp[], paths: string[]) => {
+
+            const obj = arr.find(v => v.key === paths[0]);
+            console.log('obj: ', obj);
+            
+            titles.push({
+                title: obj.label
+            });
+
+            if (paths.length > 1) {
+                paths.shift();
+                getLabel(obj.children, paths);
+            }
         }
-        console.log('breadList: ', breadList);
-        
 
-        setBreads(breadList);
+        getLabel(items, keyPath.reverse());
+
+        setBreads(titles);
     }
 
     const handleClick = ({ key, keyPath }: NavProp) => {
