@@ -65,7 +65,6 @@ const Home: FC = () => {
         const getLabel = (arr: ItemProp[], paths: string[]) => {
 
             const obj = arr.find(v => v.key === paths[0]);
-            console.log('obj: ', obj);
             
             titles.push({
                 title: obj.label
@@ -84,7 +83,7 @@ const Home: FC = () => {
 
     const handleClick = ({ key, keyPath }: NavProp) => {
 
-        console.log('点击了key: ', key, '\n点击了keyPath: ', keyPath);
+        // console.log('点击了key: ', key, '\n点击了keyPath: ', keyPath);
         
         jump(keyPath);
 
