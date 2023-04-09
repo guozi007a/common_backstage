@@ -83,7 +83,7 @@ const Home: FC = () => {
 
     const handleClick = ({ key, keyPath }: NavProp) => {
 
-        // console.log('点击了key: ', key, '\n点击了keyPath: ', keyPath);
+        console.log('点击了key: ', key, '\n点击了keyPath: ', keyPath);
         
         jump(keyPath);
 
@@ -100,6 +100,21 @@ const Home: FC = () => {
             setSelectedKeys([`${keys[0]}_${keys.at(-1)}`]);
         }
         setOpenKeys(keys.reverse());
+        
+        // 拼接出keyPath
+        if (keys.length === 1) {
+            handleBreads(keys);
+        } else {
+            const connectKeys: string[] = keys.reverse().map((v, i) => {
+                if (i === 0) {
+                    return v;
+                } else {
+                    return keys[0] + '_' + v;
+                }
+            })
+            
+            handleBreads(connectKeys.reverse());
+        }
     }, [loca.pathname])
 
     return <>
