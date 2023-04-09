@@ -4,6 +4,11 @@ import { Breadcrumb } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import SwitchLang from '@/pages/login/SwitchLang';
 import AvatarArea from './AvatarArea';
+import { BreadItemType } from './types';
+
+type BreadProp = {
+    breads: BreadItemType[]
+}
 
 const HeadWrap = styled.header`
     flex: 1;
@@ -57,7 +62,9 @@ const Input = styled.input.attrs({
 `;
 
 
-const HomeHead: FC = () => {
+const HomeHead: FC<BreadProp> = (props: BreadProp) => {
+
+    const { breads } = props;
 
     const inputRef = useRef(null);
     const [isSpreadInput, setIsSpreadInput] = useState(false);
@@ -87,20 +94,21 @@ const HomeHead: FC = () => {
             <Bias>/</Bias>
             <span className='disable'>面板</span> */}
             <Breadcrumb
-                items={[
-                    {
-                        title: 'Home',
-                    },
-                    {
-                        title: <a href="">Application Center</a>,
-                    },
-                    {
-                        title: <a href="">Application List</a>,
-                    },
-                    {
-                        title: 'An Application',
-                    },
-                ]}
+                // items={[
+                //     {
+                //         title: 'Home',
+                //     },
+                //     {
+                //         title: <a href="">Application Center</a>,
+                //     },
+                //     {
+                //         title: <a href="">Application List</a>,
+                //     },
+                //     {
+                //         title: 'An Application',
+                //     },
+                // ]}
+                items={breads}
             />
         </RouteText>
         <OperWrap>
