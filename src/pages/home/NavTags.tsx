@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 type NavProp = {
     tagList: TagProp[]
+    setTagList: (arg: TagProp[]) => void
 }
 
 const NavWrap = styled.nav`
@@ -22,10 +23,14 @@ const NavWrap = styled.nav`
 
 const NavTags: FC<NavProp> = (props: NavProp) => {
 
-    console.log('props: ', props);
     const [currentPath, setPath] = useState('');
     const loca = useLocation();
     const navigate = useNavigate();
+
+    const handleClose = (arg: string) => {
+        const list = props.tagList.filter(v => v.path !== arg);
+        props.setTagList(list);
+    }
 
     useEffect(() => { 
         const url = location.pathname;
@@ -41,7 +46,8 @@ const NavTags: FC<NavProp> = (props: NavProp) => {
                         key={v.path}
                         color={('/' + v.path) === currentPath ? 'green' : '#cccdcd'}
                         closable
-                        onClick={() => {navigate(v.path)}}
+                        onClick={() => { navigate(v.path) }}
+                        onClose={() => {handleClose(v.path)}}
                     >{v.text}</Tag>
                 })
             }

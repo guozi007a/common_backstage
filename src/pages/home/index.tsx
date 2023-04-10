@@ -84,8 +84,6 @@ const Home: FC = () => {
         setBreads(titles);
 
         // nav的tag
-        console.log('path: ', keyPath);
-        console.log('titles: ', titles);
 
         const isHasText = tagList.some(v => v.text === titles.at(-1).text);
 
@@ -110,7 +108,7 @@ const Home: FC = () => {
 
     const handleClick = ({ key, keyPath }: NavProp) => {
 
-        console.log('点击了key: ', key, '\n点击了keyPath: ', keyPath);
+        // console.log('点击了key: ', key, '\n点击了keyPath: ', keyPath);
         
         jump(keyPath);
 
@@ -174,7 +172,7 @@ const Home: FC = () => {
                     })}
                     <HomeHead breads={breads} />
                 </Header>
-                <NavTags tagList={tagList} />
+                <NavTags tagList={tagList} setTagList={setTagList} />
                 <Content
                     style={{
                         margin: '24px 16px',
