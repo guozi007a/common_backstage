@@ -90,24 +90,7 @@ const HomeHead: FC<BreadProp> = (props: BreadProp) => {
 
     return <HeadWrap>
         <RouteText>
-            {/* <span>首页</span>
-            <Bias>/</Bias>
-            <span className='disable'>面板</span> */}
             <Breadcrumb
-                // items={[
-                //     {
-                //         title: 'Home',
-                //     },
-                //     {
-                //         title: <a href="">Application Center</a>,
-                //     },
-                //     {
-                //         title: <a href="">Application List</a>,
-                //     },
-                //     {
-                //         title: 'An Application',
-                //     },
-                // ]}
                 items={breads}
             />
         </RouteText>

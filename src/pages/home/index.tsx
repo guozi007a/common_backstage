@@ -69,7 +69,8 @@ const Home: FC = () => {
             const obj = arr.find(v => v.key === paths[0]);
             
             titles.push({
-                title: obj.label
+                title: obj.label,
+                text: obj.label
             });
 
             if (paths.length > 1) {
@@ -81,36 +82,30 @@ const Home: FC = () => {
         getLabel(items, keyPath.reverse());
 
         setBreads(titles);
-    }
 
-    // 拼接nav条中的tags的数据
-    const connectNavTags = (key: string) => {
-        
-        const isHasKey = tagList.some(v => v.text === key);
+        // nav的tag
+        console.log('path: ', keyPath);
+        console.log('titles: ', titles);
 
-        if (isHasKey) {
-            const _taglist = tagList.map(v => {
-                if (v.text === key) {
-                    return {
-                        ...v,
-                        color: '#87d068'
-                    }
-                } else {
-                    return v;
-                }
-            })
+        const isHasText = tagList.some(v => v.text === titles.at(-1).text);
 
-            setTagList(_taglist);
-        } else {
-            setTagList([
+        if (!isHasText) {
+            const tag: TagProp = {
+                path: keyPath[0] === 'index'
+                    ? keyPath[0]
+                    : keyPath[0].replace(/_/g, '/'),
+                color: '',
+                text: titles.at(-1).text
+            };
+
+            const list = [
                 ...tagList,
-                {
-                    color: '#87d068',
-                    text: key,
-                    path: '/' + key.replace(/_/g, '/')
-                }
-            ])
+                tag
+            ];
+
+            setTagList(list);
         }
+
     }
 
     const handleClick = ({ key, keyPath }: NavProp) => {
@@ -120,6 +115,7 @@ const Home: FC = () => {
         jump(keyPath);
 
         handleBreads(keyPath);
+
     }
 
     useEffect(() => { 
