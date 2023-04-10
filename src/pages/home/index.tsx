@@ -10,13 +10,14 @@ import {
 import './index.less';
 import { items, ItemProp } from './items';
 import HomeHead from './HomeHead';
-import NavTags from './Tags';
-import { BreadItemType } from './types';
+import NavTags from './NavTags';
+import { BreadItemType, TagProp } from './types';
 
 type NavProp = {
     key: React.Key,
     keyPath?: string[],
 }
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -27,6 +28,7 @@ const Home: FC = () => {
     const [openKeys, setOpenKeys] = useState(['index']);
     const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
     const [breads, setBreads] = useState<BreadItemType[]>([]);
+    const [tagList, setTagList] = useState<TagProp[]>([]);
     const navigate = useNavigate();
     const loca = useLocation();
 
@@ -79,6 +81,36 @@ const Home: FC = () => {
         getLabel(items, keyPath.reverse());
 
         setBreads(titles);
+    }
+
+    // 拼接nav条中的tags的数据
+    const connectNavTags = (key: string) => {
+        
+        const isHasKey = tagList.some(v => v.text === key);
+
+        if (isHasKey) {
+            const _taglist = tagList.map(v => {
+                if (v.text === key) {
+                    return {
+                        ...v,
+                        color: '#87d068'
+                    }
+                } else {
+                    return v;
+                }
+            })
+
+            setTagList(_taglist);
+        } else {
+            setTagList([
+                ...tagList,
+                {
+                    color: '#87d068',
+                    text: key,
+                    path: '/' + key.replace(/_/g, '/')
+                }
+            ])
+        }
     }
 
     const handleClick = ({ key, keyPath }: NavProp) => {
@@ -146,7 +178,7 @@ const Home: FC = () => {
                     })}
                     <HomeHead breads={breads} />
                 </Header>
-                <NavTags />
+                <NavTags tagList={tagList} />
                 <Content
                     style={{
                         margin: '24px 16px',
