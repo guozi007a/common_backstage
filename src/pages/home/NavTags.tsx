@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 type NavProp = {
     tagList: TagProp[]
-    setTagList: (arg: TagProp[]) => void
+    setTagList: (arg: TagProp[]) => void // eslint-disable-line
 }
 
 const NavWrap = styled.nav`
