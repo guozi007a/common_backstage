@@ -53,19 +53,26 @@ const Main: FC = () => {
     const chartRef = useRef(null);
 
     const chartOptions: ECOption = {
-        title: {
-            text: 'Echarts 入门'
-        },
-        tooltip: {},
         xAxis: {
-            data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            type: 'category',
+            data: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Walnut Brownie']
         },
         yAxis: {},
         series: [
             {
-                name: '销量',
                 type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
+                name: '2015',
+                data: [89.3, 92.1, 94.4, 85.4]
+            },
+            {
+                type: 'bar',
+                name: '2016',
+                data: [95.8, 89.4, 91.2, 76.9]
+            },
+            {
+                type: 'bar',
+                name: '2017',
+                data: [97.7, 83.1, 92.5, 78.1]
             }
         ]
     };
