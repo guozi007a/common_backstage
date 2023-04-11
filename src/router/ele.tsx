@@ -7,16 +7,7 @@ const Home = lazy(() => import('@/pages/home'));
 const Login = lazy(() => import('@/pages/login'));
 const Page404 = lazy(() => import('@/components/Page404'));
 const Main = lazy(() => import('@/pages/main'));
-// const Merchant = lazy(() => import('@/pages/merchant'));
-// const Commodity = lazy(() => import('@/pages/commodity'));
-// const Costomer = lazy(() => import('@/pages/costomer'));
-// const BusinessOrder = lazy(() => import('@/pages/business-order'));
-// const Tenders = lazy(() => import('@/pages/tenders'));
 const Trade = lazy(() => import('@/pages/trade'));
-// const Aftermarket = lazy(() => import('@/pages/aftermarket'));
-// const Warehouse = lazy(() => import('@/pages/warehouse'));
-// const Department = lazy(() => import('@/pages/department'));
-// const Authority = lazy(() => import('@/pages/authority'));
 const MerchantList = lazy(() => import('@/pages/merchant/MerchantList'));
 const AddMerchant = lazy(() => import('@/pages/merchant/AddMerchant'));
 const MerchantAnalysis = lazy(() => import('@/pages/merchant/MerchantAnalysis'));
@@ -35,6 +26,8 @@ const WarehouseProduct = lazy(() => import('@/pages/warehouse/WarehouseProduct')
 const WarehouseTools = lazy(() => import('@/pages/warehouse/WarehouseTools'));
 const DepartmentList = lazy(() => import('@/pages/department/DepartmentList'));
 const AuthoritySetup = lazy(() => import('@/pages/authority/AuthoritySetup'));
+const AuthorityDepartment = lazy(() => import('@/pages/authority/AuthorityDepartment'));
+const AuthorityPosition = lazy(() => import('@/pages/authority/AuthorityPosition'));
 
 
 export const ele: RouteObject[] = [
@@ -172,7 +165,15 @@ export const ele: RouteObject[] = [
                     {
                         path: 'setup',
                         element: susHoc(AuthoritySetup)
-                    }
+                    },
+                    {
+                        path: 'department',
+                        element: susHoc(AuthorityDepartment)
+                    },
+                    {
+                        path: 'position',
+                        element: susHoc(AuthorityPosition)
+                    },
                 ]
             },
         ]

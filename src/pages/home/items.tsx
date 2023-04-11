@@ -193,12 +193,17 @@ export const items: ItemProp[] = [
             {
                 key: 'authority_setup',
                 icon: <SettingOutlined />,
-                label: '权限设置'
+                label: '特定成员'
             },
             {
                 key: 'authority_department',
                 icon: <AliIcon icon='icon-bumen' styles={iconStyles} />,
                 label: '部门权限'
+            },
+            {
+                key: 'authority_position',
+                icon: <AliIcon icon='icon-mendiangangwei_huaban' styles={iconStyles} />,
+                label: '岗位权限'
             }
         ]
     },
