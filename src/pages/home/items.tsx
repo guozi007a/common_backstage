@@ -18,6 +18,12 @@ import {
     ToolOutlined,
     SettingOutlined
 } from '@ant-design/icons';
+import AliIcon from '@/components/AliIcon';
+
+const iconStyles = {
+    fontSize: '14px',
+    marginRight: '10px',
+};
 
 export interface ItemProp {
     key: React.Key;
@@ -188,6 +194,11 @@ export const items: ItemProp[] = [
                 key: 'authority_setup',
                 icon: <SettingOutlined />,
                 label: '权限设置'
+            },
+            {
+                key: 'authority_department',
+                icon: <AliIcon icon='icon-bumen' styles={iconStyles} />,
+                label: '部门权限'
             }
         ]
     },
