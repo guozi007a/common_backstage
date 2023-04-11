@@ -196,7 +196,7 @@ export const items: ItemProp[] = [
                 label: '特定成员'
             },
             {
-                key: 'authority_department',
+                key: 'authority_depart',
                 icon: <AliIcon icon='icon-bumen' styles={iconStyles} />,
                 label: '部门权限'
             },

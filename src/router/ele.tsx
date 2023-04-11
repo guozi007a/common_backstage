@@ -167,7 +167,7 @@ export const ele: RouteObject[] = [
                         element: susHoc(AuthoritySetup)
                     },
                     {
-                        path: 'department',
+                        path: 'depart',
                         element: susHoc(AuthorityDepartment)
                     },
                     {
