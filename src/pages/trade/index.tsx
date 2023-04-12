@@ -1,11 +1,11 @@
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
 
 
-
-
-const Trade = () => {
+const Trade: FC = () => {
 
     return <>
-        交易管理
+        <Outlet />
     </>
 }
 

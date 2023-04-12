@@ -7,7 +7,6 @@ const Home = lazy(() => import('@/pages/home'));
 const Login = lazy(() => import('@/pages/login'));
 const Page404 = lazy(() => import('@/components/Page404'));
 const Main = lazy(() => import('@/pages/main'));
-const Trade = lazy(() => import('@/pages/trade'));
 const MerchantList = lazy(() => import('@/pages/merchant/MerchantList'));
 const AddMerchant = lazy(() => import('@/pages/merchant/AddMerchant'));
 const MerchantAnalysis = lazy(() => import('@/pages/merchant/MerchantAnalysis'));
@@ -30,6 +29,8 @@ const AuthorityDepartment = lazy(() => import('@/pages/authority/AuthorityDepart
 const AuthorityPosition = lazy(() => import('@/pages/authority/AuthorityPosition'));
 const AuthorityAccountsList = lazy(() => import('@/pages/authority/AuthorityAccountsList'));
 const AuthorityCreateAccount = lazy(() => import('@/pages/authority/AuthorityCreateAccount'));
+const TradeTotalCounts = lazy(() => import('@/pages/trade/TradeTotalCounts'));
+const TradeInTrading = lazy(() => import('@/pages/trade/TradeInTrading'));
 
 
 export const ele: RouteObject[] = [
@@ -116,7 +117,17 @@ export const ele: RouteObject[] = [
             },
             {   // 交易管理
                 path: 'trade',
-                element: susHoc(Trade)
+                // element: susHoc(Trade),
+                children: [
+                    {
+                        path: 'total-counts',
+                        element: susHoc(TradeTotalCounts)
+                    },
+                    {
+                        path: 'intrading',
+                        element: susHoc(TradeInTrading)
+                    }
+                ]
             },
             {   // 售后管理
                 path: 'aftermarket',

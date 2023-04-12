@@ -133,6 +133,18 @@ export const items: ItemProp[] = [
         key: 'trade',
         icon: <BoldOutlined />,
         label: '交易管理',
+        children: [
+            {
+                key: 'trade_total-counts',
+                icon: <AliIcon icon='icon-jiaoyizonge' styles={iconStyles} />,
+                label: '交易总量'
+            },
+            {
+                key: 'trade_intrading',
+                icon: <AliIcon icon='icon-jiaoyiguanli' styles={iconStyles} />,
+                label: '正在交易'
+            }
+        ]
     },
     {
         key: 'aftermarket',
