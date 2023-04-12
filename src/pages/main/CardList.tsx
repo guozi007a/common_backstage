@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from 'styled-components';
-import { Card, Space } from 'antd';
+import { Card } from 'antd';
 import AliIcon from "@/components/AliIcon";
 
 interface CardItemType {
@@ -121,7 +121,7 @@ const CardList: FC = () => {
 
     return <CardWrap>
         {
-            cardData.map((v, i) => {
+            cardData.map(v => {
                 return <Card key={v.key}>
                     <AliIcon icon={v.icon} styles={{fontSize: '50px'}} />
                     <CardText>
