@@ -2,25 +2,27 @@
 import { FC, useEffect, useRef } from 'react';
 import * as echarts from 'echarts/core';
 import {
-  BarChart,
-  // 系列类型的定义后缀都为 SeriesOption
-  BarSeriesOption,
-  LineChart,
-  LineSeriesOption
+    BarChart,
+    // 系列类型的定义后缀都为 SeriesOption
+    BarSeriesOption,
+    LineChart,
+    LineSeriesOption
 } from 'echarts/charts';
 import {
-  TitleComponent,
-  // 组件类型的定义后缀都为 ComponentOption
-  TitleComponentOption,
-  TooltipComponent,
-  TooltipComponentOption,
-  GridComponent,
-  GridComponentOption,
-  // 数据集组件
-  DatasetComponent,
-  DatasetComponentOption,
-  // 内置数据转换器组件 (filter, sort)
-  TransformComponent
+    TitleComponent,
+    // 组件类型的定义后缀都为 ComponentOption
+    TitleComponentOption,
+    TooltipComponent,
+    LegendComponent,
+    TooltipComponentOption,
+    GridComponent,
+    GridComponentOption,
+    // 数据集组件
+    DatasetComponent,
+    DatasetComponentOption,
+    // 内置数据转换器组件 (filter, sort)
+    TransformComponent,
+    VisualMapComponent
 } from 'echarts/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
@@ -41,6 +43,8 @@ echarts.use([
     GridComponent,
     DatasetComponent,
     TransformComponent,
+    VisualMapComponent,
+    LegendComponent,
     BarChart,
     LineChart,
     LabelLayout,
@@ -53,28 +57,39 @@ const Main: FC = () => {
     const chartRef = useRef(null);
 
     const chartOptions: ECOption = {
-        xAxis: {
-            type: 'category',
-            data: ['Matcha Latte', 'Milk Tea', 'Cheese Cocoa', 'Walnut Brownie']
+        title: {
+            text: 'Stacked Line'
         },
-        yAxis: {},
         series: [
             {
-                type: 'bar',
-                name: '2015',
-                data: [89.3, 92.1, 94.4, 85.4]
+                name: 'one',
+                type: 'line',
+                data: [1, 2, 3, 0],
+                stack: 'all'
             },
             {
-                type: 'bar',
-                name: '2016',
-                data: [95.8, 89.4, 91.2, 76.9]
-            },
-            {
-                type: 'bar',
-                name: '2017',
-                data: [97.7, 83.1, 92.5, 78.1]
+                name: 'two',
+                type: 'line',
+                data: [4, 5, 6, 2],
+                stack: 'all'
             }
-        ]
+        ],
+        xAxis: {
+            type: 'category',
+            data: ['业务一', '业务二', '业务三', '业务四']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        legend: {
+            data: ['one', 'two']
+        }
     };
 
     useEffect(() => { 
