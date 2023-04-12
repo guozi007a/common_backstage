@@ -1,5 +1,6 @@
 /** 首页 */
 import { FC, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import * as echarts from 'echarts/core';
 import {
     BarChart,
@@ -26,6 +27,7 @@ import {
 } from 'echarts/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
+import GitCornerSvg from './GitCornerSvg';
 
 type ECOption = echarts.ComposeOption<
     | BarSeriesOption
@@ -51,6 +53,10 @@ echarts.use([
     UniversalTransition,
     CanvasRenderer
 ]);
+
+const MainWrap = styled.main`
+    position: relative;
+`
 
 const Main: FC = () => {
 
@@ -108,10 +114,11 @@ const Main: FC = () => {
         }
     }, [])
 
-    return <>
+    return <MainWrap>
         <h3>首页</h3>
-        <div ref={chartRef} style={{width: '50%', height: 300}}></div>
-    </>
+        <div ref={chartRef} style={{ width: '50%', height: 300 }}></div>
+        <GitCornerSvg />
+    </MainWrap>
 }
 
 export default Main;

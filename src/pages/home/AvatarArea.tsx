@@ -4,8 +4,9 @@ import { CaretDownFilled } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown } from 'antd';
 import { Link } from 'react-router-dom';
+import headImg from '@/images/head-img.gif';
 
-const headImg = 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80';
+// const headImg = 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80';
 
 const AreaWrap = styled.main`
     position: relative;
