@@ -204,7 +204,17 @@ export const items: ItemProp[] = [
                 key: 'authority_position',
                 icon: <AliIcon icon='icon-mendiangangwei_huaban' styles={iconStyles} />,
                 label: '岗位权限'
-            }
+            },
+            {
+                key: 'authority_accounts-list',
+                icon: <AliIcon icon='icon-zhanghaoquanxianguanli' styles={iconStyles} />,
+                label: '账号列表'
+            },
+            {
+                key: 'authority_create-account',
+                icon: <AliIcon icon='icon-chuangjianluyou' styles={iconStyles} />,
+                label: '生成账号'
+            },
         ]
     },
 ];

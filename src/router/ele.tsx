@@ -28,6 +28,8 @@ const DepartmentList = lazy(() => import('@/pages/department/DepartmentList'));
 const AuthoritySetup = lazy(() => import('@/pages/authority/AuthoritySetup'));
 const AuthorityDepartment = lazy(() => import('@/pages/authority/AuthorityDepartment'));
 const AuthorityPosition = lazy(() => import('@/pages/authority/AuthorityPosition'));
+const AuthorityAccountsList = lazy(() => import('@/pages/authority/AuthorityAccountsList'));
+const AuthorityCreateAccount = lazy(() => import('@/pages/authority/AuthorityCreateAccount'));
 
 
 export const ele: RouteObject[] = [
@@ -174,6 +176,14 @@ export const ele: RouteObject[] = [
                         path: 'position',
                         element: susHoc(AuthorityPosition)
                     },
+                    {
+                        path: 'accounts-list',
+                        element: susHoc(AuthorityAccountsList)
+                    },
+                    {
+                        path: 'create-account',
+                        element: susHoc(AuthorityCreateAccount)
+                    }
                 ]
             },
         ]
