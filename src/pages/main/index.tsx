@@ -28,6 +28,7 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
 import GitCornerSvg from './GitCornerSvg';
+import CardList from './CardList';
 
 type ECOption = echarts.ComposeOption<
     | BarSeriesOption
@@ -115,9 +116,9 @@ const Main: FC = () => {
     }, [])
 
     return <MainWrap>
-        <h3>首页</h3>
-        <div ref={chartRef} style={{ width: '50%', height: 300 }}></div>
         <GitCornerSvg />
+        <CardList />
+        <div ref={chartRef} style={{ width: '50%', height: 300 }}></div>
     </MainWrap>
 }
 
