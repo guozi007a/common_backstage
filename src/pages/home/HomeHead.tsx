@@ -5,6 +5,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import SwitchLang from '@/pages/login/SwitchLang';
 import AvatarArea from './AvatarArea';
 import { BreadItemType } from './types';
+import AliIcon from '@/components/AliIcon';
 
 type BreadProp = {
     breads: BreadItemType[]
@@ -60,6 +61,32 @@ const Input = styled.input.attrs({
         transition: width .2s linear;
     }
 `;
+const MessageWrap = styled.section.attrs({
+    title: '新的消息'
+})`
+    position: relative;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+`
+const MessageDot = styled.span`
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    right: 0px;
+    display: inline-block;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    box-sizing: border-box; 
+    padding: 0 6px;
+    font-size: 14px;
+    color: #fff;
+    background-color: red;
+    border-radius: 8px;
+    user-select: none;
+`
 
 
 const HomeHead: FC<BreadProp> = (props: BreadProp) => {
@@ -119,6 +146,10 @@ const HomeHead: FC<BreadProp> = (props: BreadProp) => {
                 />
             </InpWrap>
             <SwitchLang />
+            <MessageWrap>
+                <AliIcon icon='icon-xiaoxi' styles={{color: 'rgb(64, 199, 196)', fontSize: '40px'}} />
+                <MessageDot>8</MessageDot>
+            </MessageWrap>
             <AvatarArea />
         </OperWrap>
     </HeadWrap>
