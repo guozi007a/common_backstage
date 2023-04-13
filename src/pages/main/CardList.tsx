@@ -2,6 +2,7 @@ import { FC } from "react";
 import styled from 'styled-components';
 import { Card } from 'antd';
 import AliIcon from "@/components/AliIcon";
+import CounterAnimation from '@/components/CounterAnimation';
 
 interface CardItemType {
     key: React.Key,
@@ -104,7 +105,7 @@ const CardText = styled.p`
         color: #f77676;
     }
     .unit {
-        font-size: 14px;
+        font-size: 12px;
         color: gray;
     }
 `
@@ -127,7 +128,9 @@ const CardList: FC = () => {
                     <CardText>
                         <span>{v.title}</span>
                         <br />
-                        <CountSpan>{v.count}</CountSpan>
+                        <CountSpan>
+                            <CounterAnimation target={v.count} />
+                        </CountSpan>
                         <UnitSpan>{v.unit}</UnitSpan>
                     </CardText>
                 </Card>
