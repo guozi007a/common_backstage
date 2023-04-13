@@ -65,28 +65,11 @@ const Main: FC = () => {
 
     const chartOptions: ECOption = {
         title: {
-            text: 'Stacked Line'
+            text: '本周经营数据一览'
         },
-        series: [
-            {
-                name: 'one',
-                type: 'line',
-                data: [1, 2, 3, 0],
-                stack: 'all'
-            },
-            {
-                name: 'two',
-                type: 'line',
-                data: [4, 5, 6, 2],
-                stack: 'all'
-            }
-        ],
-        xAxis: {
-            type: 'category',
-            data: ['业务一', '业务二', '业务三', '业务四']
-        },
-        yAxis: {
-            type: 'value'
+        legend: {
+            data: ['商户数量', '订单数量', '项目数量', '交易总额', '客户数量', '产品存量', '售后总量', '原料存余'],
+            top: 30
         },
         tooltip: {
             trigger: 'axis',
@@ -94,9 +77,64 @@ const Main: FC = () => {
                 type: 'cross'
             }
         },
-        legend: {
-            data: ['one', 'two']
-        }
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: '商户数量',
+                type: 'line',
+                smooth: true,
+                data: [158, 154, 166, 173, 168, 160, 168]
+            },
+            {
+                name: '订单数量',
+                type: 'line',
+                smooth: true,
+                data: [433, 512, 510, 598, 601, 647, 692]
+            },
+            {
+                name: '项目数量',
+                type: 'line',
+                smooth: true,
+                data: [17, 15, 10, 24, 32, 28, 23]
+            },
+            {
+                name: '交易总额',
+                type: 'line',
+                smooth: true,
+                data: [1520.4, 1592, 1583.6, 1672, 1741.5, 1806.3, 1860.2]
+            },
+            {
+                name: '客户数量',
+                type: 'line',
+                smooth: true,
+                data: [1324, 1376, 1320, 1400, 1421, 1409, 1438]
+            },
+            {
+                name: '产品存量',
+                type: 'line',
+                smooth: true,
+                data: [455.5, 432.7, 467.6, 320.9, 337.6, 452, 498.8]
+            },
+            {
+                name: '售后总量',
+                type: 'line',
+                smooth: true,
+                data: [276, 224, 282, 357, 313, 328, 395]
+            },
+            {
+                name: '原料存余',
+                type: 'line',
+                smooth: true,
+                data: [527, 463, 429.8, 676.4, 724.9, 765.1, 816.4]
+            },
+        ]
     };
 
     useEffect(() => { 
@@ -118,7 +156,7 @@ const Main: FC = () => {
     return <MainWrap>
         <GitCornerSvg />
         <CardList />
-        <div ref={chartRef} style={{ width: '50%', height: 300 }}></div>
+        <div ref={chartRef} style={{ width: '80%', height: 600, marginTop: 40 }}></div>
     </MainWrap>
 }
 
