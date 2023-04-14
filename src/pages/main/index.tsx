@@ -1,5 +1,5 @@
 /** 首页 */
-import { FC, useEffect, useRef } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import GitCornerSvg from './GitCornerSvg';
 import CardList from './CardList';
