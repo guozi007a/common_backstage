@@ -55,6 +55,9 @@ const items: MenuProps['items'] = [
         ),
     },
     {
+        type: 'divider',
+    },
+    {
         key: '3',
         label: (
             // <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
