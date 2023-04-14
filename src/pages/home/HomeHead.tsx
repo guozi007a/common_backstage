@@ -6,6 +6,7 @@ import SwitchLang from '@/pages/login/SwitchLang';
 import AvatarArea from './AvatarArea';
 import { BreadItemType } from './types';
 import AliIcon from '@/components/AliIcon';
+import { items } from './items';
 
 type BreadProp = {
     breads: BreadItemType[]
@@ -57,7 +58,7 @@ const Input = styled.input.attrs({
     transition: width .2s linear;
 
     &.spread {
-        width: 200px;
+        width: 220px;
         transition: width .2s linear;
     }
 `;
@@ -86,6 +87,49 @@ const MessageDot = styled.span`
     background-color: red;
     border-radius: 8px;
     user-select: none;
+`
+const TreeWrap = styled.main`
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, .12);
+    border-radius: 6px;
+    user-select: none;
+
+    .child {
+        height: 24px;
+        line-height: 24px;
+        cursor: pointer;
+        margin: 2px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .2);
+        }
+    }
+`
+const TreeChild0 = styled.p.attrs({
+    className: 'child'
+})`
+    font-size: 18px;
+`
+const TreeChild1 = styled.p.attrs({
+    className: 'child'
+})`
+    font-size: 16px;
+    box-sizing: border-box;
+    padding-left: 24px;
+`
+const TreeChild2 = styled.p.attrs({
+    className: 'child'
+})`
+    font-size: 14px;
+    box-sizing: border-box;
+    padding-left: 48px;
 `
 
 
@@ -144,6 +188,15 @@ const HomeHead: FC<BreadProp> = (props: BreadProp) => {
                         setSearchVal(e.target.value);
                     }}
                 />
+                <TreeWrap>
+                    {
+                        items.map((v, i) => {
+                            return <TreeChild0 key={v.key}>
+                                {v.label}
+                            </TreeChild0>
+                        })
+                    }
+                </TreeWrap>
             </InpWrap>
             <SwitchLang />
             <MessageWrap>
