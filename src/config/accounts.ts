@@ -1,5 +1,13 @@
 /** 提供登录的账号列表，点击注入按钮，对应账号会自动填充至登录表单中 */
 
+/**
+ * 特定成员权限
+ * 
+ * 部门权限
+ * 
+ * 岗位权限
+ */
+
 export interface AccountType {
     key: string, // 唯一标识
     username: string; // 账号
