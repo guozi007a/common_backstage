@@ -6,7 +6,7 @@
 html, css, less, js, typescript,
 react@18+, redux, react-redux, react-router-dom, 
 ant-design@5+, webpack, eslint, prettier, 
-styled-components, echarts
+styled-components, echarts, lodash
 ```
 ## 实现功能
 

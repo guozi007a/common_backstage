@@ -21,3 +21,7 @@ declare module '*.jpg'
 declare module '*.jpeg'
 declare module '*.gif'
 declare module '*.svg'
+
+// lodash类型声明
+declare module 'lodash.debounce';
+declare module 'lodash';
