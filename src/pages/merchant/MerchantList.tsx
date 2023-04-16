@@ -100,25 +100,25 @@ const MerchantList: FC = () => {
     return <>
         <div>
             <Space>
-                <label htmlFor="department" style={{paddingLeft: 5}}>
-                    选择部门: 
+                <label htmlFor="merchantName" style={{paddingLeft: 5}}>
+                    商户名称: 
                     <Input
-                        id="staffname"
-                        placeholder=""
+                        id="merchantName"
+                        placeholder="商户名称"
                     />
                 </label>
-                <label htmlFor="staffname">
-                    员工姓名: 
+                <label htmlFor="licenseId">
+                    营业执照号: 
                     <Input
-                        id="staffname"
-                        placeholder="员工姓名"
+                        id="licenseId"
+                        placeholder="营业执照号"
                     />
                 </label>
-                <label htmlFor="staffid">
-                    员工工号: 
+                <label htmlFor="contacts">
+                    联系人姓名: 
                     <Input
-                        id="staffid"
-                        placeholder="员工工号"
+                        id="contacts"
+                        placeholder="联系人姓名"
                     />
                 </label>
             </Space>

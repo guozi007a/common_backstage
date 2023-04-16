@@ -18,3 +18,12 @@ styled-components, echarts, lodash
 - 规范化开发
 - 路由搜索
 - 路由记录
+- 图片识别提取文本
+
+---
+
+```html
+Tesseract.js和ocrad.js两个js库
+
+https://www.jianshu.com/p/255ff0376bec
+```
