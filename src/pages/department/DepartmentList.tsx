@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import styled from 'styled-components';
 import { Space, Input, Button, Table, Select, Tag } from "antd";
 import { SearchOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
+import MatchCounts from '@/components/MatchCounts';
 
 enum Sex { Male, Female }
 
@@ -85,23 +85,6 @@ for (let i = 0; i < 46; i++) {
     });
 }
 
-const MatchCounts = styled.section`
-    width: 100%;
-    height: 38px;
-    box-sizing: border-box;
-    background-color: #e6f7ff;
-    border: 1px solid #91d5ff;
-    border-radius: 6px;
-    padding-left: 15px;
-    line-height: 38px;
-    margin-top: 20px;
-
-    span {
-        color: #1890ff;
-        padding: 0 6px;
-    }
-`
-
 const DepartmentList: FC = () => {
 
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
@@ -162,9 +145,7 @@ const DepartmentList: FC = () => {
                 <Button danger disabled={!hasSelected}>批量删除</Button>
             </Space>
         </div>
-        <MatchCounts>
-            共匹配到<span>{data.length}</span>项数据，您共选中了<span>{selectedRowKeys.length}</span>条数据.
-        </MatchCounts>
+        <MatchCounts matchLength={data.length} selectCounts={selectedRowKeys.length} />
         <div>
             <div style={{ marginBottom: 20 }}></div>
             <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
