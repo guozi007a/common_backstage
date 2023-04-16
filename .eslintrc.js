@@ -36,8 +36,9 @@ module.exports = {
         // 不允许混合使用空格键和tab键进行缩进，
         // 设置为0，即可以混用，实际开发中肯定是要混用的
         "no-mixed-spaces-and-tabs": 0,
-        // 当有未使用的变量时，只警告，不报错
-        "no-unused-vars": 1,
+        // 禁止出现未使用的变量，这里选择关闭检查，
+        // 因为很多时候已经使用或无法直接使用，会给无聊的提示
+        "no-unused-vars": 0,
         // 关闭any检查，有时候需要用到any
         "@typescript-eslint/no-explicit-any": 0,
         // 关闭严格的null检查，因为设置!断言后它还是会警告
