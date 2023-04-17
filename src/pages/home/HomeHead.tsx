@@ -10,6 +10,7 @@ import { items, ItemProp } from './items';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import debounce from 'lodash.debounce';
 import { Link } from 'react-router-dom';
+import AppQRCode from './AppQRCode';
 
 type BreadProp = {
     breads: BreadItemType[]
@@ -317,6 +318,7 @@ const HomeHead: FC<BreadProp> = (props: BreadProp) => {
                 <AliIcon icon='icon-xiaoxi' styles={{color: 'rgb(64, 199, 196)', fontSize: '40px'}} />
                 <MessageDot>8</MessageDot>
             </MessageWrap>
+            <AppQRCode />
             <AvatarArea />
         </OperWrap>
     </HeadWrap>

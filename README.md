@@ -19,6 +19,7 @@ styled-components, echarts, lodash
 - 路由搜索
 - 路由记录
 - 图片识别提取文本
+- 手机扫码查看
 
 ---
 
