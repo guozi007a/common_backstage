@@ -15,7 +15,7 @@ const content = (
 const AppQRCode: React.FC = () => (
     <Space wrap>
         <Popover content={content} title="扫码可在手机上查看" trigger="click">
-            <Button>
+            <Button className='pop_btn'>
                 <AliIcon icon='icon-shouji' styles={{fontSize: 34, cursor: 'pointer'}} />
             </Button>
         </Popover>

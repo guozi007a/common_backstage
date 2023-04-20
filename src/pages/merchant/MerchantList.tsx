@@ -135,7 +135,7 @@ const MerchantList: FC = () => {
         <MatchCounts matchLength={data.length} selectCounts={selectedRowKeys.length} />
         <div>
             <div style={{ marginBottom: 20 }}></div>
-            <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+            <Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={{showSizeChanger: false}} />
         </div>
     </>
 }
