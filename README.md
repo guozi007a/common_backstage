@@ -22,9 +22,3 @@ styled-components, echarts, lodash
 - 手机扫码查看
 
 ---
-
-```html
-Tesseract.js和ocrad.js两个js库
-
-https://www.jianshu.com/p/255ff0376bec
-```

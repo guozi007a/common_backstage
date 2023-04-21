@@ -43,6 +43,11 @@ const AddMerchant: FC = () => {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
         >
+            {/* 
+            Tesseract.js和ocrad.js两个js库实现识别图片中的文本
+            https://www.jianshu.com/p/255ff0376bec 
+            Tesseract.js可以自己训练中文字库，提升识别度
+            */}
             <Upload {...props}>
                 <Button icon={<UploadOutlined />}>上传营业执照图片</Button>
             </Upload>
